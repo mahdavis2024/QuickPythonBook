@@ -33,4 +33,4 @@ with open("moby_01.txt") as infile, open("moby_01_clean.txt", "w") as outfile:
 # see the outfile		
 with open('moby_01_clean.txt','r') as outfile:
 	for each in outfile:
-		print(each)	
+		print(each, end = "")	
