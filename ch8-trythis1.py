@@ -21,7 +21,7 @@ for i in range(len(y)):
 	for j in range(len(y[i])):
 		if y[i][j] < 0:
 			tot = tot + y[i][j]
-print('total of negetives: ', tot)
+print('total of negatives: ', tot)
 
 '''
 What code would you use to print very low if the value of x is below -5, low if it’s
