@@ -31,7 +31,7 @@ def cleaner(text):
 	return '\n'.join(words_list)
 
 # finding most common refactored into funtion
-def least_finder(counted_dict):
+def most_finder(counted_dict):
 	global maxi
 	maxi = max(list(counted_dict.values()))
 	most = []
@@ -41,7 +41,7 @@ def least_finder(counted_dict):
 	return most		
 
 # finding least common refactored into funtion
-def most_finder(counted_dict):
+def least_finder(counted_dict):
 	global mini
 	mini = min(list(counted_dict.values())) 
 	least = []
