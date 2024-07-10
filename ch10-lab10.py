@@ -3,51 +3,33 @@ Package the functions created at the end of chapter 9 as a standalone module. Al
 you can include code to run the module as the main program, the goal should be for the
 functions to be completely usable from another script.'''
 
-'''the module for cleaning a text file, counting the words, and reporting frequent words'''
+#importing everything from the module
+import text_processor
 
-def remove_punc(string):
-	'''removing punctuations from any given string'''
-	table = string.maketrans('.,?;:!"-_][)(\'',' '*14)
-	return string.translate(table)
+#What was done in lab 6
+with open("moby_01.txt") as infile, open("moby_01_clean.txt", "w") as outfile:
+	cleaned_words = text_processor.cleaner(infile)
+	outfile.write(cleaned_words)
 
- 
-
-def cleaner(text):
-	'''cleaning a file and making it standard to proccess'''
-	words_list = []
-	for line in text:
-		lower_case = line.lower()
-		sans_punct = remove_punc(lower_case)
-		line_list = sans_punct.split()		
-		words_list = words_list + line_list
-	return '\n'.join(words_list)
+# see the outfile		
+with open('moby_01_clean.txt','r') as outfile:
+	for each in outfile:
+		print(each, end = "")	
 
 
-def w_counter(text):
-	'''counting words in any given text'''
-	counted = {}
-	for word in text:
-		counted[word] = counted.get(word, 0) + 1
-	return counted
+#What was done in lab 7
+with open("moby_01_clean.txt") as infile:
+	word_count = text_processor.w_counter(infile)
+most_common = text_processor.most_finder(word_count)
+least_common = text_processor.least_finder(word_count)
 
 
-def most_finder(counted_dict):
-	'''inding most common words in a dictionary'''
-	global maxi
-	maxi = max(list(counted_dict.values()))
-	most = []
-	for key in list(counted_dict.keys()):
-		if counted_dict[key] >= maxi - 7:
-			most.append(key.strip("\n"))
-	return most		
+print('''In the first chapter of Moby Dick\nThe most common words are
+ {0} with {1} to {2} times of occorance.\n
+ The least common words are {3} with only {4} times of occurance.
+ '''.format(most_common, text_processor.maxi - 7 , text_processor.maxi , least_common, text_processor.mini ))
 
 
-def least_finder(counted_dict):
-	'''finding least common words in a dictionary'''
-	global mini
-	mini = min(list(counted_dict.values())) 
-	least = []
-	for key in list(counted_dict.keys()):	 
-		if counted_dict[key] == mini:
-			least.append(key.strip("\n"))
-	return least
+
+
+
