@@ -8,7 +8,7 @@ class Circle(Shape):
 	all_circles = []
 	pi = 3.14159
 
-	def __init__(self, r=1, x=0, x=0):
+	def __init__(self, r=1, x=0, y=0):
 		"""inheritin from the base class Shape"""
 		super().__init__(x, y)
 		"""Create a Circle with the given radius"""
@@ -24,10 +24,10 @@ class Circle(Shape):
 
 	@classmethod 
 	def total_area(cls): 
-	total = 0
-	for c in cls.all_circles: 
-		total = total + c.area()
-	return total
+		total = 0
+		for c in cls.all_circles: 
+			total = total + c.area()
+		return total
 
 	@classmethod 
 	def total_circ(cls): 
@@ -35,4 +35,4 @@ class Circle(Shape):
 		total = 0
 		for c in cls.all_circles: 
 			total = total + c.circumference()
-	return total
+		return total

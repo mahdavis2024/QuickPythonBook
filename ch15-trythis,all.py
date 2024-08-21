@@ -74,21 +74,21 @@ class Rectangle(Shape):
 		self.__height = arg1
 		self.__width = arg2
 
-"""making hieght and width variables private is by using double underscores before their name.
-it makes them safe from name clash and accidental change in other programs.
-however there's no way to access private variables from instance attributes. 
-unless explicitally prepended by class name.
-Or there should be getter and setter defined for them with @property decorator."""
+# """making hieght and width variables private is by using double underscores before their name.
+# it makes them safe from name clash and accidental change in other programs.
+# however there's no way to access private variables from instance attributes. 
+# unless explicitally prepended by class name.
+# Or there should be getter and setter defined for them with @property decorator."""
 
-		@property
-		def height(self):
-			return self.__height
+@property
+def height(self):
+	return self.__height
 
-		@height.setter
-		def height(self, value):
-			if value <= 0:
-				raise ValueError('Height must be a positive number.')
-			self.__height = value
+	@height.setter
+	def height(self, value):
+		if value <= 0:
+			raise ValueError('Height must be a positive number.')
+		self.__height = value
 
 		@property
 		def width(self):
