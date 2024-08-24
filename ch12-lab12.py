@@ -1,8 +1,7 @@
 '''
 Lab 12: More file operations
 How might you calculate the total size of all files ending with .txt that aren’t symlinks in
-a directory? If your first answer was using os.path, also try it with pathlib, and vice
-versa.
+a directory? If your first answer was using os.path, also try it with pathlib, and vice versa.
 Write some code that builds off your solution to move the same .txt files in the lab
 question to a new subdirectory called backup in the same directory.
 '''
